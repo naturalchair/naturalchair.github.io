@@ -1,0 +1,62 @@
+//  styles the container section
+@use "../../abstracts" as a;
+
+.wrapper {
+  // height: 100vh;
+  padding: 10vh;
+  @include a.flexCenter();
+  flex-direction: column;
+  gap: 10rem;
+  h1 {
+    font-size: a.$title-font-size;
+    text-align: center;
+  }
+}
+
+.difficulties {
+  @include a.flexCenter();
+  flex-wrap: wrap;
+  gap: 10vh;
+  width: 80vw;
+  &:has(.difficulties__cards:hover)
+    .difficulties__cards:not(.difficulties__cards:hover) {
+    opacity: 0.6;
+  }
+}
+
+.difficulties__cards {
+  transition: 0.5s;
+  width: 300px;
+  height: 300px;
+  a {
+    text-decoration: none;
+  }
+  button {
+    height: 100%;
+    width: 100%;
+  }
+  button:hover {
+    cursor: pointer;
+    background: a.$accent-color;
+    box-shadow: 0 0 30px 0 a.$accent-color;
+    border: 0;
+  }
+}
+
+.cards__button {
+  @include a.flexCenter();
+  flex-direction: column;
+  gap: 2vh;
+  padding: 48px;
+  border: 0;
+  box-shadow: 0 0 30px 0 rgba(a.$light-color, 0.1);
+  background: a.$contrast-color;
+  border-radius: 36px;
+  transition: 0.5s;
+  h2 {
+    font-size: a.$header-font-size;
+  }
+  p {
+    font-size: a.$body-font-size;
+  }
+}
